@@ -50,9 +50,25 @@ apiRouter.put('/minions/:minionId', (req, res, next) => {
 
 // DELETE /api/minions/:minionId to delete a single minion by id.
 apiRouter.delete('/minions/:minionId', (req, res, next) => {
-    deleteFromDatabasebyId('minions', req.minion.id);
-    res.send('Minion successful deleted');
-})
+    deleteFromDatabasebyId('minions', req.params.minionId);
+    res.status(204).send();
+});
+
+
+// /api/ideas
+// Idea
+// id: string
+// name: string
+// description: string
+// numWeeks: number
+// weeklyRevenue: number
+
+// GET /api/ideas to get an array of all ideas.
+// POST /api/ideas to create a new idea and save it to the database.
+// GET /api/ideas/:ideaId to get a single idea by id.
+// PUT /api/ideas/:ideaId to update a single idea by id.
+// DELETE /api/ideas/:ideaId to delete a single idea by id.
+
 
 
 
