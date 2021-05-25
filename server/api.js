@@ -1,9 +1,12 @@
 const express = require('express');
 const apiRouter = express.Router();
+const cors = require('cors')
 const minionsRouter = require('./routes/minions');
 const workRouter = require('./routes/work');
 const ideasRouter = require('./routes/ideas');
 const meetingsRouter = require('./routes/meetings');
+
+apiRouter.use(cors());
 
 // ROUTES
 apiRouter.use('/minions', minionsRouter, workRouter);
