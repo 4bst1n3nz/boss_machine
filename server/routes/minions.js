@@ -1,6 +1,6 @@
 const express = require('express');
 const minionsRouter = express.Router();
-const { getAllFromDatabase, getFromDatabaseById, addToDatabase, updateInstanceInDatabase, deleteFromDatabasebyId, deleteAllFromDatabase, createMeeting } = require('../db');
+const { getAllFromDatabase, getFromDatabaseById, addToDatabase, updateInstanceInDatabase, deleteFromDatabasebyId } = require('../db');
 
 // MINIONS
 // DRY Minion existence check
@@ -20,7 +20,7 @@ minionsRouter.get('/', (req, res) => {
     if (allMinions) {
         res.send(allMinions);
     } else {
-        res.status(404).send('Minions not found!');
+        res.status(400).send('Minions not found!');
     } 
 });
 
